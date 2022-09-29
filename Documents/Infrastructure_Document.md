@@ -7,71 +7,43 @@ Table contents:
 5. CircleCI
 
 ## AWS RDS
-- DB identifier: database-1
-- HOST: database-1.c0vpqovd9sta.us-east-1.rds.amazonaws.com
+- DB identifier: database-2
+- HOST: database-2.c0vpqovd9sta.us-east-1.rds.amazonaws.com
 - Engine: PostgreSQL
 - Region & AZ: Region & AZ
 - Publicly accessible: Yes
 
 ## AWS Elastic Beanstalk
 - Application: udagram-api
-- Environment: udagram-api
-- Version: app-220927_100731554154
-- URL: `http://udagram-api.us-east-1.elasticbeanstalk.com/`
-- Environment properties: AWS_BUCKET, AWS_PROFILE, AWS_REGION, ENV, JWT_SECRET, PORT, POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_USERNAME
+- Environment: udagram-api-dev
+- Version: app-220929_164421208622
+- URL: `http://udagram-api-dev2222.us-east-1.elasticbeanstalk.com/`
+- Environment properties: AWS_BUCKET, AWS_PROFILE, AWS_REGION,  JWT_SECRET,  POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_USERNAME
 
 ## AWS S3
-- Bucket: elasticbeanstalk-us-east-1-466850583282
+- Bucket: finalcoursedungpa12new2
 - Static website hosting: Enable
 - Index document: index.html
-- Website: `http://elasticbeanstalk-us-east-1-466850583282.s3-website-us-east-1.amazonaws.com`
+- Website: `http://finalcoursedungpa12new2.s3-website-us-east-1.amazonaws.com/`
 - Bucket policy:
 ```
 {
-    "Version": "2008-10-17",
+    "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "eb-ad78f54a-f239-4c90-adda-49e5f56cb51e",
+            "Sid": "Stmt1625306057759",
             "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::466850583282:role/aws-elasticbeanstalk-ec2-role"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::elasticbeanstalk-us-east-1-466850583282/resources/environments/logs/*"
-        },
-        {
-            "Sid": "eb-af163bf3-d27b-4712-b795-d1e33e331ca4",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::466850583282:role/aws-elasticbeanstalk-ec2-role"
-            },
-            "Action": [
-                "s3:ListBucket",
-                "s3:ListBucketVersions",
-                "s3:GetObject",
-                "s3:GetObjectVersion"
-            ],
-            "Resource": [
-                "arn:aws:s3:::elasticbeanstalk-us-east-1-466850583282",
-                "arn:aws:s3:::elasticbeanstalk-us-east-1-466850583282/resources/environments/*"
-            ]
-        },
-        {
-            "Sid": "eb-58950a8c-feb6-11e2-89e0-0800277d041b",
-            "Effect": "Deny",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:DeleteBucket",
-            "Resource": "arn:aws:s3:::elasticbeanstalk-us-east-1-466850583282"
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::finalcoursedungpa12new2/*"
         }
     ]
 }
 ```
 
 ## GitHub
-- Repo: `https://github.com/anhdung237/udacityfinalproject.git`
+- Repo: `https://github.com/anhdung237/nd0067-c4-deployment-process-project-starter/tree/master/udagram/udagram-api`
 
 ## CircleCI
-- Project: udacityfinalproject
-- Environment variables: AWS_ACCESS_KEY_ID, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, AWS_BUCKET, AWS_PROFILE, AWS_REGION, ENV, JWT_SECRET, PORT, POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_USERNAME
+- Project: nd0067-c4-deployment-process-project-starter6
+- Environment variables: AWS_ACCESS_KEY_ID, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, AWS_BUCKET, AWS_PROFILE, AWS_REGION,  JWT_SECRET,  POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_USERNAME
